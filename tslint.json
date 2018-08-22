@@ -45,6 +45,19 @@
         "jsdoc-format": true,
         "object-literal-sort-keys": false,
         "no-console": false,
-        "noImplicitAny": false
+        "noImplicitAny": false,
+        "trailing-comma": [
+            false,
+            {
+                "multiline": {
+                    "objects": "always",
+                    "arrays": "always",
+                    "functions": "never",
+                    "typeLiterals": "ignore"
+                },
+                "esSpecCompliant": true
+            }
+        ],
+        "ordered-imports": false
     }
 }
