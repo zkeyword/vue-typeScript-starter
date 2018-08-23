@@ -25,5 +25,5 @@
         "tests/**/*.tsx"
     ],
     "exclude": ["node_modules"],
-    "files": ["types/mint-ui.d.ts"]
+    "files": ["types/mint-ui.d.ts", "types/vendor.d.ts"]
 }

@@ -58,6 +58,7 @@
                 "esSpecCompliant": true
             }
         ],
-        "ordered-imports": false
+        "ordered-imports": false,
+        "max-line-length": [false]
     }
 }

@@ -25,7 +25,7 @@ export function hourMin(value: string, format: string = 'HH:mm') {
 
 export function standardDate(
     value: string,
-    format: string = 'YYYY-MM-DD HH:mm:ss',
+    format: string = 'YYYY-MM-DD HH:mm:ss'
 ) {
     return dayjs(value).format(format)
 }
