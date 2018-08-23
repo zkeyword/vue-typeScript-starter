@@ -1,6 +1,6 @@
 {
-  "name": "vue-ts",
-  "short_name": "vue-ts",
+  "name": "vue-test",
+  "short_name": "vue-test",
   "icons": [
     {
       "src": "/img/icons/android-chrome-192x192.png",

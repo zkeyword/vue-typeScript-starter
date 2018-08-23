@@ -1,5 +1,5 @@
 {
-    "name": "vue-ts",
+    "name": "vue-test",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -7,7 +7,8 @@
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
         "test:unit": "vue-cli-service test:unit",
-        "fixed": "tslint --fix --project tsconfig.json --exclude 'src/**/*.ts*','tests/**/*.ts*'"
+        "test:e2e": "vue-cli-service test:e2e",
+        "fixed": "tslint --fix --project tsconfig.json --exclude 'src/**/*.ts*','src/**/*.vue','tests/**/*.ts*'"
     },
     "dependencies": {
         "axios": "^0.18.0",
@@ -15,7 +16,7 @@
         "mint-ui": "^2.2.13",
         "register-service-worker": "^1.0.0",
         "vue": "^2.5.17",
-        "vue-class-component": "^6.2.0",
+        "vue-class-component": "^6.0.0",
         "vue-property-decorator": "^7.0.0",
         "vue-router": "^3.0.1",
         "vuex": "^3.0.1"
@@ -24,24 +25,31 @@
         "@types/axios": "^0.14.0",
         "@types/jest": "^23.1.4",
         "@vue/cli-plugin-babel": "^3.0.1",
+        "@vue/cli-plugin-e2e-cypress": "^3.0.1",
         "@vue/cli-plugin-pwa": "^3.0.1",
         "@vue/cli-plugin-typescript": "^3.0.1",
         "@vue/cli-plugin-unit-jest": "^3.0.1",
         "@vue/cli-service": "^3.0.1",
         "@vue/test-utils": "^1.0.0-beta.20",
         "babel-core": "7.0.0-bridge.0",
+        "lint-staged": "^7.2.2",
+        "stylus": "^0.54.5",
+        "stylus-loader": "^3.0.2",
         "ts-jest": "^23.0.0",
         "typescript": "^3.0.0",
         "vue-template-compiler": "^2.5.17"
     },
-    "postcss": {
-        "plugins": {
-            "autoprefixer": {}
-        }
+    "gitHooks": {
+        "pre-commit": "lint-staged"
     },
-    "browserslist": [
-        "> 1%",
-        "last 2 versions",
-        "not ie <= 8"
-    ]
+    "lint-staged": {
+        "*.ts": [
+            "vue-cli-service lint",
+            "git add"
+        ],
+        "*.vue": [
+            "vue-cli-service lint",
+            "git add"
+        ]
+    }
 }
