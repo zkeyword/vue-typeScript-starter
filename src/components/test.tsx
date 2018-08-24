@@ -1,20 +1,13 @@
 import Vue, { CreateElement } from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
+import { VueComponent } from 'vue-tsx-helper'
 
-// const Props = Vue.extend({
-//     props: {
-//         m: {
-//             type: Number,
-//             default: () => []
-//         }
-//     }
-// })
-// export interface IProps {
-//     m?: number
-// }
+export interface IProps {
+    m?: number
+}
 
 @Component
-export default class TestComponent extends Vue {
+export default class TestComponent extends VueComponent<IProps> {
     @Prop()
     public m!: number
 

@@ -20,9 +20,9 @@ export default class TestComponent extends Vue {
 
     public render(h: CreateElement) {
         return (
-            <div className='s'>
+            <div class='s'>
                 <div onClick={this.testClick}>{this.msg}</div>
-                <Test m="{'this is props'}" />
+                <Test m={2} />
             </div>
         )
     }
