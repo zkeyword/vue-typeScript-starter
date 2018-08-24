@@ -4,6 +4,7 @@ import { VueComponent } from 'vue-tsx-helper'
 
 export interface IProps {
     m?: number
+    click?: any
 }
 
 @Component
@@ -11,22 +12,26 @@ export default class TestComponent extends VueComponent<IProps> {
     @Prop()
     public m!: number
 
-    private msg: number = 1111
+    @Prop()
+    public click: any
+
+    private msg: string = 'init msg'
 
     public testClick() {
-        this.msg = 12121212
+        this.msg = 'click img'
+        this.$emit('click')
+        this.click()
     }
 
     public beforeUpdate() {
-        console.log('beforeUpdate')
+        console.log('TestComponent beforeUpdate')
     }
 
     public render(h: CreateElement) {
-        console.log(this)
         return (
             <div>
                 <div onClick={this.testClick}>
-                    sssss {this.msg} ssss {this.m} 2323
+                    {this.m} {this.msg}
                 </div>
             </div>
         )
