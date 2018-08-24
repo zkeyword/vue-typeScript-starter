@@ -1,9 +1,9 @@
-import Vue from 'vue'
+import Vue, { CreateElement } from 'vue'
 import Component from 'vue-class-component'
 
 @Component
 export class AppComponent extends Vue {
-    public render() {
+    public render(h: CreateElement) {
         return (
             <template>
                 <div id='app'>

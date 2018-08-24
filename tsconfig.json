@@ -25,5 +25,10 @@
         "tests/**/*.tsx"
     ],
     "exclude": ["node_modules"],
-    "files": ["types/mint-ui.d.ts", "types/vendor.d.ts"]
+    "files": [
+        "types/mint-ui.d.ts",
+        "types/vendor.d.ts",
+        "src/shims-tsx.d.ts",
+        "src/shims-vue.d.ts"
+    ]
 }

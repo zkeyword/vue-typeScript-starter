@@ -1,13 +1,29 @@
-import Vue from 'vue'
+import Vue, { CreateElement } from 'vue'
 import Component from 'vue-class-component'
+import Test from '@/components/test'
 
-@Component
-export class TestComponent extends Vue {
-    public render() {
+@Component({
+    components: {
+        Test
+    }
+})
+export default class TestComponent extends Vue {
+    private msg: number = 11111
+
+    public testClick() {
+        this.msg = 11212121212121212121
+    }
+
+    public beforeUpdate() {
+        console.log('beforeUpdate')
+    }
+
+    public render(h: CreateElement) {
         return (
-            <template>
-                <div id='app'>asdfads</div>
-            </template>
+            <div className='s'>
+                <div onClick={this.testClick}>{this.msg}</div>
+                <Test m="{'this is props'}" />
+            </div>
         )
     }
 }
