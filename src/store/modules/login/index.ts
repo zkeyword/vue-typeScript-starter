@@ -11,14 +11,14 @@ const state = {
 // Mutation 必须是同步函数
 const mutations = {
     [GET_TASK_LIST](s: any, data: any) {
-        state.taskListData = data
+        s.taskListData = data
     }
 }
 
 const actions = {
     /* 获取列表 */
-    async getTaskList(context: any, payload: any) {
-        context.commit(GET_TASK_LIST, payload)
+    async getTaskList({ commit }: any, payload: any) {
+        commit(GET_TASK_LIST, payload)
     }
 }
 
