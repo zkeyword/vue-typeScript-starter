@@ -1,19 +1,17 @@
-import Vue, { CreateElement } from 'vue'
+import Vue from 'vue'
 import Component from 'vue-class-component'
 
 @Component
-export class AppComponent extends Vue {
-    public render(h: CreateElement) {
+export default class App extends Vue {
+    public render() {
         return (
-            <template>
-                <div id='app'>
-                    <div id='nav'>
-                        <router-link to='/'>Home</router-link> |
-                        <router-link to='/about'>About</router-link>
-                    </div>
-                    <router-view />
+            <div id='app'>
+                <div id='nav'>
+                    <router-link to='/'>Home</router-link> |
+                    <router-link to='/about'>About</router-link>
                 </div>
-            </template>
+                <router-view />
+            </div>
         )
     }
 }

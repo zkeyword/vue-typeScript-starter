@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from './App'
 // import './registerServiceWorker'
 import * as Mint from 'mint-ui'
 import router from './router'
@@ -17,5 +17,5 @@ Vue.config.productionTip = false
 new Vue({
     router,
     store,
-    render: (h) => h(App)
+    render: (h: any) => h(App)
 }).$mount('#app')
