@@ -3,7 +3,7 @@ import { Component, Prop, Model } from 'vue-property-decorator'
 import { VueComponent } from 'vue-tsx-helper'
 
 export interface IProps {
-    m?: number
+    m?: string
     click?: any
 }
 
@@ -16,11 +16,19 @@ export default class TestComponent extends VueComponent<IProps> {
     public click: any
 
     @Model('input', {
-        default: '2323232'
+        default: 'input value'
     })
     public value!: string
 
     private msg: string = 'init msg'
+
+    private get text(): string {
+        return this.value
+    }
+
+    private set text(value: string) {
+        this.$emit('input', value)
+    }
 
     public testClick() {
         this.msg = 'click img'
@@ -29,7 +37,7 @@ export default class TestComponent extends VueComponent<IProps> {
     }
 
     public onChange(v: any) {
-        console.log(v)
+        console.log(v.value)
     }
 
     public beforeUpdate() {
@@ -37,15 +45,17 @@ export default class TestComponent extends VueComponent<IProps> {
     }
 
     public render(h: CreateElement) {
+        console.log(this.m)
         return (
             <div>
                 <div onClick={this.testClick}>
                     {this.m} {this.msg}
                     <input
                         type='text'
-                        v-model={this.value}
-                        value={this.value}
+                        v-model={this.text}
+                        // value={this.value}
                         onChange={this.onChange}
+                        style='border: 1px solid #ddd'
                     />
                     {this.value}
                 </div>
